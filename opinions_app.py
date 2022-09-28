@@ -38,7 +38,6 @@ def index_view():
 @app.route('/add')
 def add_opinion_view():
     return render_template('add_opinion.html')
-    
 
 if __name__ == '__main__':
     app.run()
