@@ -15,7 +15,7 @@ def index_view():
     offset_value = randrange(quantity)
     opinion = Opinion.query.offset(offset_value).first()
     return render_template('opinion.html', opinion=opinion)
-    
+
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_opinion_view():
@@ -26,8 +26,8 @@ def add_opinion_view():
             flash('Такое мнение уже было оставлено ранее!')
             return render_template('add_opinion.html', form=form)
         opinion = Opinion(
-            title=form.title.data, 
-            text=form.text.data, 
+            title=form.title.data,
+            text=form.text.data,
             source=form.source.data
         )
         db.session.add(opinion)

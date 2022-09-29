@@ -52,7 +52,7 @@ class OpinionForm(FlaskForm):
 # Тут декорируется обработчик и указывается код нужной ошибки
 @app.errorhandler(404)
 def page_not_found(error):
-    # В качестве ответа возвращается собственный шаблон 
+    # В качестве ответа возвращается собственный шаблон
     # и код ошибки
     return render_template('404.html'), 404
 
@@ -86,8 +86,8 @@ def add_opinion_view():
             # и вернуть пользователя на страницу «Добавить новое мнение»
             return render_template('add_opinion.html', form=form)
         opinion = Opinion(
-            title=form.title.data, 
-            text=form.text.data, 
+            title=form.title.data,
+            text=form.text.data,
             source=form.source.data
         )
         db.session.add(opinion)
@@ -117,7 +117,7 @@ def load_opinions_command():
         # Для подсчёта строк добавляется счётчик
         counter = 0
         for row in reader:
-            # Распакованный словарь можно использовать 
+            # Распакованный словарь можно использовать
             # для создания объекта мнения
             opinion = Opinion(**row)
             # Изменения нужно зафиксировать
